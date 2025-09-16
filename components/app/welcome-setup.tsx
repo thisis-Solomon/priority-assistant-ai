@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
@@ -38,7 +38,7 @@ export default function WelcomeSetup({ onRoleSet }: WelcomeSetupProps) {
                 <CardDescription>Let&apos;s get started. To give you the best advice, we need to know your role.</CardDescription>
             </CardHeader>
             <CardContent>
-                <Form {...form}>
+                <FormProvider {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                         <FormField
                             control={form.control}
@@ -55,7 +55,7 @@ export default function WelcomeSetup({ onRoleSet }: WelcomeSetupProps) {
                         />
                         <Button type="submit" className="w-full">Get Started</Button>
                     </form>
-                </Form>
+                </FormProvider>
             </CardContent>
         </Card>
     </div>
