@@ -114,17 +114,23 @@ export default function MondayPriorityInput({ userRole, onPrioritiesSet }: Monda
                 />
               ))}
             </div>
-            {fields.length < 5 &&
+            {fields.length < 5 && (
               <Button type="button" variant="outline" size="sm" onClick={() => append({text: ''})}>
-                  <Plus className="mr-2 h-4 w-4" /> Add Priority
+                <Plus className="mr-2 h-4 w-4" /> Add Priority
               </Button>
-            }
+            )}
             <Button type="submit" className="w-full" disabled={isLoading}>
-              <span className="flex items-center justify-center">
-                {isLoading && <Loader2 key="loading-icon" className="mr-2 h-4 w-4 animate-spin" /> }
-                {!isLoading && <Sparkles key="sparkles-icon" className="mr-2 h-4 w-4" />}
-                Set Priorities & Get Insights
-              </span>
+              {isLoading ? (
+                <span className="flex items-center justify-center">
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Set Priorities & Get Insights
+                </span>
+              ) : (
+                <span className="flex items-center justify-center">
+                  <Sparkles className="mr-2 h-4 w-4" />
+                  Set Priorities & Get Insights
+                </span>
+              )}
             </Button>
           </form>
         </Form>
