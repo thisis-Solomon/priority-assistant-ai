@@ -121,11 +121,8 @@ export default function MondayPriorityInput({ userRole, onPrioritiesSet }: Monda
             }
             <Button type="submit" className="w-full" disabled={isLoading}>
               <span className="flex items-center justify-center">
-                {isLoading ? (
-                  <Loader2 key="loading-icon" className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Sparkles key="sparkles-icon" className="mr-2 h-4 w-4" />
-                )}
+                {isLoading && <Loader2 key="loading-icon" className="mr-2 h-4 w-4 animate-spin" /> }
+                {!isLoading && <Sparkles key="sparkles-icon" className="mr-2 h-4 w-4" />}
                 Set Priorities & Get Insights
               </span>
             </Button>
